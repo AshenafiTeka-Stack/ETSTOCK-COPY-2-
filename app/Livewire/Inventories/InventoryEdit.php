@@ -3,7 +3,6 @@
 namespace App\Livewire\Inventories;
 
 use App\Models\Inventories;
-use App\Models\Inventory;
 use Livewire\Component;
 
 class InventoryEdit extends Component

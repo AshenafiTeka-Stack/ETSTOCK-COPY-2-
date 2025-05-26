@@ -18,20 +18,20 @@
        
 
 
-
-       <select wire:model="selectedProductId" id="product" class="border rounded bg-gray-200 w-full p-2">
-        <option value="" class="bg-white dark:bg-gray-300 text-gray-400 dark:text-gray-400">Product  Name</option>
+    <flux:label>Product Name</flux:label>
+       <select wire:model="selectedProductId" id="product" class="border rounded bg-gray-600 w-full p-2">
+        <option value="" class="bg-white dark:bg-gray-300 text-gray-400 dark:text-gray-400">Select Product Name</option>
         @foreach($products as $product)
             <option value="{{ $product->product_name }}" class="bg-white dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-900 dark:hover:bg-gray-700">
                 {{ $product->product_name }}
             </option>
-        @endforeach
+        @endforeach     
     </select>
        
 
-
-    <select wire:model="selectedWarehouseId" id="warehouse" class="border rounded bg-gray-200 w-full p-2">
-        <option value="" class="bg-white dark:bg-gray-300 text-gray-400 dark:text-gray-400">Warehouse Name</option>
+    <flux:label>Warehouse Name</flux:label>
+    <select wire:model="selectedWarehouseId" id="warehouse" class="border rounded bg-gray-600 w-full p-2">
+        <option value="" class="bg-white dark:bg-gray-300 text-gray-400 dark:text-gray-400">Select Warehouse Name</option>
         @foreach($warehouses as $warehouse)
             <option value="{{ $warehouse->name }}" class="bg-white dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-900 dark:hover:bg-gray-700">
                 {{ $warehouse->name }}
