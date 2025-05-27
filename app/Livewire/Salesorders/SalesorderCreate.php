@@ -2,6 +2,7 @@
 
 namespace App\Livewire\Salesorders;
 
+use App\Models\Customer;
 use App\Models\Salesorders;
 use Livewire\Component;
 
@@ -9,6 +10,14 @@ class SalesorderCreate extends Component
 {
     public $customer_id, $order_date, $status, $total_amount;
 
+
+    public $customers = [];
+    public $selectedcustomerName = null;
+
+    public function mount()
+    {
+        $this->customers = Customer::all();
+    }
     public function render()
     {
         return view('livewire.salesorders.salesorder-create');
@@ -17,14 +26,14 @@ class SalesorderCreate extends Component
     public function submit()
     {
         $this->validate([
-            'customer_id' => 'required',
+            'selectedcustomerName' => 'required|exists:customers,name',
             'order_date' => 'required',
             'status' => 'required',
             'total_amount' => 'required',
         ]);
 
         Salesorders::create([
-            'customer_id' => $this->customer_id,
+            'customer_id' => $this->selectedcustomerName,
             'order_date' => $this->order_date,
             'status' => $this->status,
             'total_amount' => $this->total_amount
