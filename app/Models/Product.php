@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 class Product extends Model
 {
 
+
+
     protected $primaryKey = 'product_id';
     public $incrementing = false; // because UUID is not auto-incrementing
     protected $keyType = 'string'; // UUIDs are strings

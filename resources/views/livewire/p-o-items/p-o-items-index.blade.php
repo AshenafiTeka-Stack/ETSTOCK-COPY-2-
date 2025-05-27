@@ -25,8 +25,8 @@
         <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400">
         <tr>
             <th scope="col" class="px-6 py-3">ID</th>
-            <th scope="col" class="px-6 py-3">PO_ID</th>
-            <th scope="col" class="px-6 py-3">Product_ID</th>
+            <th scope="col" class="px-6 py-3">Purchase Order ID</th>
+            <th scope="col" class="px-6 py-3">Product Name</th>
             <th scope="col" class="px-6 py-3 ">Qunatity</th>
             <th scope="col" class="px-6 py-3 ">Unit_Price</th>
             <th scope="col" class="px-6 py-3 ">Actions</th>

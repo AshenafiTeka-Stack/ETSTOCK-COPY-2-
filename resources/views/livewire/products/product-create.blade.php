@@ -17,11 +17,11 @@
     <flux:input wire:model="product_sku" placeholder="Product SKU" />
     
     <!-- Remove the category_id input field and keep only the dropdown -->
-    <select wire:model="selectedcategoryName" id="productcategory" class="border rounded bg-gray-200 w-full p-2">
-        <option value="" class="bg-white dark:bg-gray-300 text-gray-400 dark:text-gray-400">Product Category Name</option>
+    <select wire:model="selectedcategoryName" id="productcategory" class="border rounded bg-gray-600 w-full p-2">
+        <option value="" class="bg-white dark:bg-gray-300 text-gray-400 dark:text-gray-400">Select Product Category ID & Name</option>
         @foreach($productcategories as $productcategory)
             <option value="{{ $productcategory->name }}" class="bg-white dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-900 dark:hover:bg-gray-700">
-                {{ $productcategory->name }}
+               [{{ $productcategory->id }}] {{ $productcategory->name  }}
             </option>
         @endforeach
     </select>
@@ -33,7 +33,7 @@
     <flux:input wire:model="selling_price" placeholder="Product Selling_Price" />
     <flux:input type="date" wire:model="exp_date" label="Exp_Date" placeholder="Product Exp_date" />
     <flux:input wire:model="reorder_level" placeholder="Product Reorder_Level" />
-    <flux:input wire:model="barcode_QR" placeholder="Product Barcode_QR" />
+    <flux:input wire:model="barcode_QR" placeholder="Product Barcode/QR" />
     <flux:input type="date" wire:model="reg_date" label="Reg_Date" placeholder="Product Reg_Date" />
 
     <flux:button type="submit" variant="primary" class="mt-5">Create</flux:button>
