@@ -13,7 +13,7 @@ class POItemsCreate extends Component
 
 
     // For PO selection
-    public $p_orders = [];
+    public $porders = [];
     public $selectedporderId = null;
 
     // For warehouse selection
@@ -22,7 +22,7 @@ class POItemsCreate extends Component
 
     public function mount()
     {
-        $this->p_orders = POrder::all();
+        $this->porders = POrder::all();
         $this->products = Product::all();
     }
 
@@ -34,7 +34,7 @@ class POItemsCreate extends Component
     public function submit()
     {
         $this->validate([
-            'selectedporderId' => 'required|exists:p_orders,id',
+            'selectedporderId' => 'required|exists:porders,id',
             'selectedproductName' => 'required|exists:products,product_name',
             'quantity' => 'required',
             'unit_price' => 'required',

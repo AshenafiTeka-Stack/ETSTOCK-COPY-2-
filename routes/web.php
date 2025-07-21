@@ -1,13 +1,17 @@
 <?php
 
+use App\Livewire\Analytics;
 use App\Livewire\Categories\CategoryCreate;
 use App\Livewire\Categories\CategoryEdit;
 use App\Livewire\Categories\CategoryIndex;
 use App\Livewire\Categories\CategoryShow;
+use App\Livewire\Counter;
+use App\Livewire\CreateTestPost;
 use App\Livewire\Customers\CustomerCreate;
 use App\Livewire\Customers\CustomerEdit;
 use App\Livewire\Customers\CustomerIndex;
 use App\Livewire\Customers\Customershow;
+use App\Livewire\Dashboard;
 use App\Livewire\Inventories\InventoryCreate;
 use App\Livewire\Inventories\InventoryEdit;
 use App\Livewire\Inventories\InventoryIndex;
@@ -21,6 +25,14 @@ use App\Livewire\POrder\POrderEdit;
 use App\Livewire\POrder\POrderEditShow;
 use App\Livewire\POrder\POrderIndex;
 use App\Livewire\POrder\POrderShow;
+use App\Livewire\POSSaleItems\POSSaleItemsCreate;
+use App\Livewire\POSSaleItems\POSSaleItemsEdit;
+use App\Livewire\POSSaleItems\POSSaleItemsIndex;
+use App\Livewire\POSSaleItems\POSSaleItemsShow;
+use App\Livewire\POSSales\POSSaleCreate;
+use App\Livewire\POSSales\POSSaleEdit;
+use App\Livewire\POSSales\POSSaleIndex;
+use App\Livewire\POSSales\POSSaleShow;
 use App\Livewire\Product\ProductCreate;
 use App\Livewire\Product\ProductEdit;
 use App\Livewire\Product\ProductIndex;
@@ -47,6 +59,8 @@ use App\Livewire\Suppliers\SupplierCreate;
 use App\Livewire\Suppliers\SupplierEdit;
 use App\Livewire\Suppliers\SupplierIndex;
 use App\Livewire\Suppliers\SupplierShow;
+use App\Livewire\Testpost;
+use App\Livewire\Testposttest;
 use App\Livewire\Users\UserCreate;
 use App\Livewire\Users\UserEdit;
 use App\Livewire\Users\UserIndex;
@@ -56,6 +70,7 @@ use App\Livewire\Warehouse\WarehouseEdit;
 use App\Livewire\Warehouse\WarehouseIndex;
 use App\Livewire\Warehouse\WarehouseShow;
 use Illuminate\Support\Facades\Route;
+use App\Livewire\PosSales;
 
 use Livewire\Volt\Volt;
 
@@ -70,6 +85,15 @@ Route::view('dashboard', 'dashboard')
 Route::middleware(['auth'])->group(function () {
     Route::redirect('settings', 'settings/profile');
 
+    Route::get('/counter', Counter::class);
+    Route::get('/testposttest', Testposttest::class);
+    Route::get('/createtestpost', CreateTestPost::class);
+
+
+
+    // Route::get("analytics", Analytics::class)->name("analytics");
+    // Route::get("dashboard", Dashboard::class)->name("dashboard");
+
     Route::get("users", UserIndex::class)->name("users.index");
     Route::get("users/create", UserCreate::class)->name("users.create");
     Route::get("users/{id}/UserEdit", UserEdit::class)->name("users.edit");
@@ -79,6 +103,7 @@ Route::middleware(['auth'])->group(function () {
     Route::get("products/create", ProductCreate::class)->name("products.create");
     Route::get("products/{product_id}/ProductEdit", ProductEdit::class)->name("products.edit");
     Route::get("products/{product_id}", ProductShow::class)->name("products.show");
+
 
     // Route::get("products", ProductIndex::class)->name("products.index")->middleware("permission:product.view|product.create|product.edit|product.delete");
     // Route::get("products/create", ProductCreate::class)->name("products.create")->middleware("permission:product.create");
@@ -147,6 +172,17 @@ Route::middleware(['auth'])->group(function () {
     Route::get("stockadjustments/create", StockadjustmentsCreate::class)->name("stockadjustments.create");
     Route::get("stockadjustments/{id}/StockAdjutmentEdit", StockadjustmentsEdit::class)->name("stockadjustments.edit");
     Route::get("stockadjustments/{id}", StockadjustmentsShow::class)->name("stockadjustments.show");
+
+    Route::get("possales", POSSaleIndex::class)->name("possales.index");
+    Route::get("possales/create", POSSaleCreate::class)->name("possales.create");
+    Route::get("possales/{id}/POSSalesEdit", POSSaleEdit::class)->name("possales.edit");
+    Route::get("possales/{id}", POSSaleShow::class)->name("possales.show");
+
+    Route::get("possaleitems", POSSaleItemsIndex::class)->name("possaleitems.index");
+    Route::get("possaleitems/create", POSSaleItemsCreate::class)->name("possaleitems.create");
+    Route::get("possaleitems/{id}/POSSalesEdit", POSSaleItemsEdit::class)->name("possaleitems.edit");
+    Route::get("possaleitems/{id}", POSSaleItemsShow::class)->name("possaleitems.show");
+
 
     Volt::route('settings/profile', 'settings.profile')->name('settings.profile');
     Volt::route('settings/password', 'settings.password')->name('settings.password');

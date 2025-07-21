@@ -17,7 +17,6 @@
                 @php
                     [$message, $author] = str(Illuminate\Foundation\Inspiring::quotes()->random())->explode('-');
                 @endphp
-
                 <div class="relative z-20 mt-auto">
                     <blockquote class="space-y-2">
                         <footer>@include('partials.theme')</footer>

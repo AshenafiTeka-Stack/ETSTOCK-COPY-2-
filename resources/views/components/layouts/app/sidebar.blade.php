@@ -21,6 +21,10 @@
                     wire:navigate>{{ __('Dashboard') }}
                 </flux:navlist.item>
 
+                 {{-- <flux:navlist.item icon="home" :href="route('analytics')" :current="request()->routeIs('analytics')"
+                    wire:navigate>{{ __('Analytics') }}
+                </flux:navlist.item> --}}
+
                 <flux:navlist.item icon="users" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>{{ __('Users') }}
                 </flux:navlist.item>
 
@@ -207,10 +211,14 @@
             </flux:menu>
         </flux:dropdown>
     </flux:header>
-
+  
     {{ $slot }}
-
+   
+   
     @fluxScripts
-</body>
+    
+     @stack('scripts')
 
+
+</body>
 </html>

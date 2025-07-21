@@ -17,11 +17,11 @@
         <flux:input wire:model="product_id" label="Product_ID" placeholder="Product ID" /> --}}
 
         <flux:label>Purchase Order ID</flux:label>
-       <select wire:model="selectedporderId" id="p_orders" class="border rounded bg-gray-600 w-full p-2">
+       <select wire:model="selectedporderId" id="porders" class="border rounded bg-gray-600 w-full p-2">
         <option value="" class="bg-white dark:bg-gray-300 text-gray-400 dark:text-gray-400">Select Purchase Order ID</option>
-        @foreach($p_orders as $p_order)
-            <option value="{{ $p_order->id }}" class="bg-white dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-900 dark:hover:bg-gray-700">
-                [{{ $p_order->id }}] - {{ $p_order->supplier_id }}
+        @foreach($porders as $porder)
+            <option value="{{ $porder->id }}" class="bg-white dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-900 dark:hover:bg-gray-700">
+                [{{ $porder->id }}] - {{ $porder->supplier_id }}
             </option>
         @endforeach     
     </select>

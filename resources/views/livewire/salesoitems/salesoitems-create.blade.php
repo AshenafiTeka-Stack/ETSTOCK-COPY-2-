@@ -13,8 +13,31 @@
 
 <div class="mb-5">
     <form wire:submit="submit" class="mt-5 space-y-5 w-150" >
-        <flux:input wire:model="so_id" label="Sales Order ID" placeholder="Sales Order ID" />
-        <flux:input wire:model="product_id" label="Product ID" placeholder="Product ID" />
+        {{-- <flux:input wire:model="so_id" label="Sales Order ID" placeholder="Sales Order ID" />
+        <flux:input wire:model="product_id" label="Product ID" placeholder="Product ID" /> --}}
+       
+
+        <flux:label>Sales Order ID</flux:label>
+    <select wire:model="selectedsalesorderId" id="salesorder" class="border rounded bg-gray-600 w-full p-2">
+        <option value="" class="bg-white dark:bg-gray-300 text-gray-400 dark:text-gray-400">Select Sales Order ID</option>
+        @foreach($salesorders as $salesorder)
+            <option value="{{ $salesorder->id }}" class="bg-white dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-900 dark:hover:bg-gray-700">
+                [{{ $salesorder->id }}] - {{ $salesorder->customer_id }}
+            </option>
+        @endforeach
+    </select>
+
+
+            <flux:label>Product Name</flux:label>
+       <select wire:model="selectedproductName" id="product" class="border rounded bg-gray-600 w-full p-2">
+        <option value="" class="bg-white dark:bg-gray-300 text-gray-400 dark:text-gray-400">Select Product Name</option>
+        @foreach($products as $product)
+            <option value="{{ $product->product_name }}" class="bg-white dark:bg-gray-600 text-gray-800 dark:text-gray-200 hover:bg-gray-900 dark:hover:bg-gray-700">
+                {{ $product->product_name }}
+            </option>
+        @endforeach     
+    </select>
+
         <flux:input wire:model="quantity" label="Quantity" placeholder="Quantity" />
         <flux:input wire:model="unit_price" label="Unit Price" placeholder="Unit Price" />
     
